@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+
+    <title>Space invaders</title>
+    <meta content="" name="description" />
+    <meta content="" name="keywords" />
+
+    <!-- Favicons -->
+    <link href="assets/img/fav.png" rel="icon" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+      rel="stylesheet"
+    />
+
+    <!-- Vendor CSS Files -->
+    <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/bootstrap/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet" />
+    <link
+      href="assets/vendor/glightbox/css/glightbox.min.css"
+      rel="stylesheet"
+    />
+    <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet" />
+    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet" />
+
+    <!-- Template Main CSS File -->
+    <link href="assets/css/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="wrap cf">
+      <h1 class="projTitle">
+        Responsive Table<span>-Less</span> Shopping Cart
+      </h1>
+      <div class="heading cf">
+        <h1>My Cart</h1>
+        <a href="#" class="continue">Continue Shopping</a>
+      </div>
+      <div class="cart">
+        <!--    <ul class="tableHead">
+            <li class="prodHeader">Product</li>
+            <li>Quantity</li>
+            <li>Total</li>
+             <li>Remove</li>
+          </ul>-->
+        <ul class="cartWrap">
+          <li class="items odd">
+            <div class="infoWrap">
+              <div class="cartSection">
+                <img
+                  src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg"
+                  alt=""
+                  class="itemImg"
+                />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p><input type="text" class="qty" placeholder="3" /> x $5.00</p>
+
+                <p class="stockStatus">In Stock</p>
+              </div>
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+          <li class="items even">
+            <div class="infoWrap">
+              <div class="cartSection">
+                <img
+                  src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg"
+                  alt=""
+                  class="itemImg"
+                />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p><input type="text" class="qty" placeholder="3" /> x $5.00</p>
+
+                <p class="stockStatus">In Stock</p>
+              </div>
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+
+          <li class="items odd">
+            <div class="infoWrap">
+              <div class="cartSection">
+                <img
+                  src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg"
+                  alt=""
+                  class="itemImg"
+                />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p><input type="text" class="qty" placeholder="3" /> x $5.00</p>
+
+                <p class="stockStatus out">Out of Stock</p>
+              </div>
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+          </li>
+          <li class="items even">
+            <div class="infoWrap">
+              <div class="cartSection info">
+                <img
+                  src="http://lorempixel.com/output/technics-q-c-300-300-4.jpg"
+                  alt=""
+                  class="itemImg"
+                />
+                <p class="itemNumber">#QUE-007544-002</p>
+                <h3>Item Name 1</h3>
+
+                <p><input type="text" class="qty" placeholder="3" /> x $5.00</p>
+
+                <p class="stockStatus">In Stock</p>
+              </div>
+
+              <div class="prodTotal cartSection">
+                <p>$15.00</p>
+              </div>
+
+              <div class="cartSection removeWrap">
+                <a href="#" class="remove">x</a>
+              </div>
+            </div>
+            <div class="special">
+              <div class="specialContent">
+                Free gift with purchase!, gift wrap, etc!!
+              </div>
+            </div>
+          </li>
+
+          <!--<li class="items even">Item 2</li>-->
+        </ul>
+      </div>
+
+      <div class="promoCode">
+        <label for="promo">Have A Promo Code?</label
+        ><input type="text" name="promo" placholder="Enter Code" />
+        <a href="#" class="btn"></a>
+      </div>
+
+      <div class="subtotal cf">
+        <ul>
+          <li class="totalRow">
+            <span class="label">Subtotal</span><span class="value">$35.00</span>
+          </li>
+
+          <li class="totalRow">
+            <span class="label">Shipping</span><span class="value">$5.00</span>
+          </li>
+
+          <li class="totalRow">
+            <span class="label">Tax</span><span class="value">$4.00</span>
+          </li>
+          <li class="totalRow final">
+            <span class="label">Total</span><span class="value">$44.00</span>
+          </li>
+          <li class="totalRow">
+            <a href="#" class="btn continue">Checkout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

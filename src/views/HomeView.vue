@@ -1,11 +1,10 @@
 <template>
   <div class="home">
-    <!--<img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>-->
+    <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
         <div class="container-fluid overflow-hidden p-0">
       <div class="row g-0">
-        <div lc-helper="background" class="col-md-6 order-md-2" style="min-height: 100vh; background-size: cover; background-position: center; background-image: url('./hotelfinish.jpg');">
-    
+        <div lc-helper="background" class="col-md-6 order-md-2" style="min-height: 100vh; background-size: cover; background-position: center;">
+      <img src="../assets/hotelfinish.jpg" alt="Space hotel">
         </div>
         <div class="col-md-6 order-md-1 my-auto text-center" style="padding:10vw">
     

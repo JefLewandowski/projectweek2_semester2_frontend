@@ -33,7 +33,7 @@ export default new Vuex.Store({
     setUrls (state) {
       state.endpoints.login = process.env.VUE_APP_AUTH_URL;
        state.endpoints.products = process.env.VUE_APP_PRODUCTS_URL;
-       url = state.endpoints.products+"/findAll";
+       url = process.env.VUE_APP_PRODUCTS_URL+"/findAll";
     },
     logout(state) {
       state.user.isAuthenticated = false;

@@ -71,15 +71,16 @@
                   />
                 </div>
                 <div class="form-button mt-3">
-                  <button
+                  <router-link
                     @click="onRegisterClicked"
                     id="submit"
                     type="submit"
                     class="btn btn-primary"
                     to="/"
+                    tag="button"
                   >
                     Register
-                  </button>
+                  </router-link>
                 </div>
               </div>
             </div>
@@ -257,9 +258,9 @@ export default {
     return {
       name: "",
       desc: "",
-      adults: 0,
-      children: 0,
-      price: 0,
+      adults: "",
+      children: "",
+      price: "",
       info: "",
     };
   },

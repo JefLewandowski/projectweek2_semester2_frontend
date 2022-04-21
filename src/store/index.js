@@ -4,8 +4,13 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
+const url = "http://localhost:8000/products/findAll";
+const headers = { Accept: "application/json" };
+
 export default new Vuex.Store({
   state: {
+    productsArray: [],
+    inCart: [],
     user: {
       isAuthenticated: false,
       name: "",
@@ -19,6 +24,10 @@ export default new Vuex.Store({
       partnercheck: "http://localhost:8000/check",
       products: "http://localhost:8000/products",
     },
+  },
+  getters: {
+      getProducts: (state) => state.productsArray,
+      inCart: state => state.inCart,
   },
   mutations: {
     logout(state) {
@@ -39,8 +48,52 @@ export default new Vuex.Store({
      SET_PARTNER(state, partner) { 
       state.user.partner = partner;
     },
+    SET_PRODUCTS(state, product) {
+      state.productsArray = product
+    },
+    setProducts(state, payload) {
+      state.productsArray = payload;
+    },
+    addToCart(state, payload) { 
+     console.log(payload);
+     state.inCart.push(payload);
+    },
+    removeFromCart(state, item) { 
+      state.inCart.splice(item, 1); 
+    },
+    /*
+    logout(state) {
+     state.user.isAuthenticated = false;
+     state.user.name = "";
+     state.user.email ="";
+     state.user.idToken ="";
+    },
+    login(state, payload) {
+     state.user.isAuthenticated = true;
+     state.user.name = payload.name;
+     state.user.email =payload.email;
+     state.user.idToken =payload.idToken;
+    },*/
   },
+  
   actions: {
+    /*async getProducts({ commit }){
+        try{
+          const data = await axios.get(this.state.endpoints.products)
+          commit('SET_PRODUCTS', data.data)
+          
+        }catch (error) {
+          alert(error)
+          console.log(error)
+        }
+        
+    },*/
+    async getProducts(state) {
+      const products = await fetch(url, { headers });
+      const prods = await products.json();
+      state.commit("setProducts", prods);
+      console.log(prods);
+    },
     async checkPartner({ state, commit }) {
       let accessToken = state.user.accessToken;
       console.log("checking partner access", state.endpoints.partnercheck);
@@ -66,17 +119,15 @@ export default new Vuex.Store({
       console.log(productsurl);
       let accessToken = state.user.accessToken;
       const AuthStr = 'Bearer '.concat(accessToken);
-      console.log(AuthStr);
+      console.log('Auth'.concat(AuthStr));
       console.log(obj);
-      axios(productsurl, { 
-          method: 'POST',
+      axios.post(productsurl, obj, { 
           headers: {
             'Accept': '*/*',
             'Content-Type': 'application/json',
             'Authorization': AuthStr
           },
           credentials: 'include',
-          data: obj
       })
       .then(response => {
         console.log('Response:', response);

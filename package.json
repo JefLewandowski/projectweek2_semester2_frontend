@@ -9,8 +9,16 @@
   },
   "dependencies": {
     "axios": "^0.26.1",
+    "bootstrap": "^4.0.0-beta.2",
     "core-js": "^3.8.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "express-session": "^1.17.2",
+    "jquery": "^1.9.1",
+    "openid-client": "^2.4.5",
+    "popper.js": "^1.12.3",
     "vue": "^2.6.14",
+    "vue-js-modal": "^2.0.1",
     "vue-router": "^3.5.1",
     "vuex": "^3.6.2"
   },

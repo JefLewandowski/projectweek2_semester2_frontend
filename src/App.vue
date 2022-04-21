@@ -1,40 +1,20 @@
 <template>
   <div id="app">
     <NavHeader />
-    <router-view/>
+    <router-view />
   </div>
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
-
 <script>
-import NavHeader from "@/NavHeader.vue"
+import NavHeader from "@/NavHeader.vue";
+
 export default {
   components: {
-    NavHeader
+    NavHeader,
   },
-  mounted(){
-  }
-}
+  mounted() {
+    this.$store.commit("setUrls");
+    // this.$store.dispatch("getProducts");
+  },
+};
 </script>

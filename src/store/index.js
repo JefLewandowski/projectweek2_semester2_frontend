@@ -4,7 +4,7 @@ import axios from 'axios'
 
 Vue.use(Vuex)
 
-const url = "http://localhost:8000/products/findAll";
+let url = "http://localhost:8000/products/findAll";
 const headers = { Accept: "application/json" };
 
 export default new Vuex.Store({

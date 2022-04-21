@@ -7,9 +7,11 @@ Vue.use(Vuex)
 const url = "http://localhost:8000/products/findAll";
 const headers = { Accept: "application/json" };
 
+let devRoom = {type: "DEV - Single room", typeid: 1, price: 269, adults: 2, children: 0}
+
 export default new Vuex.Store({
   state: {
-    productsArray: [],
+    productsArray: [devRoom],
     inCart: [],
     user: {
       isAuthenticated: false,
@@ -55,11 +57,10 @@ export default new Vuex.Store({
       state.productsArray = payload;
     },
     addToCart(state, payload) { 
-     console.log(payload);
      state.inCart.push(payload);
     },
-    removeFromCart(state, item) { 
-      state.inCart.splice(item, 1); 
+    removeFromCart(state, index) { 
+      state.inCart.splice(index, 1); 
     },
     /*
     logout(state) {

@@ -1,3 +1,4 @@
+<!--
 <template>
   <div class="register">
     <div class="form-body">
@@ -7,26 +8,25 @@
             <div class="form-items">
               <table class="table">
                 <tbody>
-                  <Item />
                   <tr v-for="(item, idx) in products" :key="idx">
-                    <td>{{ item.title }}</td>
+                    <td>{{ item.name }}</td>
                     <td>€{{ item.price }}</td>
                     <td>
                       <button
                         class="btn btn-sm btn-danger"
-                        @click="removeFromCart(item)"
+                        v-on:click="removeFromCart(item)"
                       >
                         &times;
                       </button>
                     </td>
                   </tr>
-                  <!--
+                  
                   <tr>
                     <th></th>
                     <th>${{ total }}</th>
                     <th></th>
                   </tr>
-                  -->
+                  
                 </tbody>
               </table>
             </div>
@@ -36,6 +36,94 @@
     </div>
   </div>
 </template>
+-->
+
+<template>
+  <div>
+    <section class="h-100" style="background-color: #eee">
+      <div class="container h-100 py-5">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+          <div class="col-10">
+            <div
+              class="card rounded-3 mb-4"
+              v-for="(item, idx) in products"
+              :key="idx"
+            >
+              <div class="card-body p-4">
+                <div
+                  class="row d-flex justify-content-between align-items-center"
+                >
+                  <div class="col-md-3 col-lg-3 col-xl-3">
+                    <p class="lead fw-normal mb-2">{{ item.name }}</p>
+                    <p>{{ item.adults }} adults</p>
+                    <p>{{ item.children }} children</p>
+                  </div>
+                  <div class="col-md-3 col-lg-3 col-xl-2 d-flex"></div>
+                  <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                    <h5 class="mb-0">€{{ item.price }}</h5>
+                  </div>
+                  <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                    <button
+                      class="btn btn-sm btn-danger"
+                      v-on:click="removeFromCart(idx)"
+                    >
+                      &times;
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-body">
+                <button type="button" class="btn btn-warning btn-block btn-lg">
+                  Proceed to Pay
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</template>
+
+<script>
+export default {
+  computed: {
+    products() {
+      return this.$store.getters.inCart;
+    },
+  },
+  name: "RegisterView",
+  data() {
+    return {
+      name: "",
+      desc: "",
+      adults: 0,
+      children: 0,
+      price: 0,
+      info: "",
+    };
+  },
+  methods: {
+    onRegisterClicked() {
+      let product = {
+        name: this.name,
+        description: this.desc,
+        adults: this.adults,
+        children: this.children,
+        price: this.price,
+        extraINformation: this.info,
+      };
+      this.$store.dispatch("registerProduct", product);
+    },
+    removeFromCart(item) {
+      this.$store.commit("removeFromCart", item);
+    },
+  },
+};
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700;900&display=swap");
@@ -105,7 +193,8 @@ body {
   margin-bottom: 30px;
 }
 
-.form-content p {
+.form-content p,
+tr > * {
   color: #fff;
   text-align: left;
   font-size: 17px;
@@ -196,42 +285,3 @@ input {
   margin: 1em 0;
 }
 </style>
-
-<script>
-import Item from "@/Item.vue";
-
-export default {
-  components: {
-    Item,
-  },
-  computed: {
-    products() {
-      return this.$store.getters.inCart;
-    },
-  },
-  name: "RegisterView",
-  data() {
-    return {
-      name: "",
-      desc: "",
-      adults: 0,
-      children: 0,
-      price: 0,
-      info: "",
-    };
-  },
-  methods: {
-    onRegisterClicked() {
-      let product = {
-        name: this.name,
-        description: this.desc,
-        adults: this.adults,
-        children: this.children,
-        price: this.price,
-        extraINformation: this.info,
-      };
-      this.$store.dispatch("registerProduct", product);
-    },
-  },
-};
-</script>

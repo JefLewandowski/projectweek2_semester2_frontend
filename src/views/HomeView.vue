@@ -1,8 +1,5 @@
 <template>
   <div class="home">
-    <p>
-      {{ inCart }}
-    </p>
     <!-- ======= Hero Section ======= -->
     <section id="hero" class="d-flex align-items-center">
       <div class="container">
@@ -478,23 +475,17 @@
           </div>
           <div class="row">
             <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-              <Item />
-            </div>
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link :to="{ path: '/edit?type=' + item.typeid }">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>Standard Room</h3>
                 <h4><sup>€</sup>250<span>One night</span></h4>
                 <ul>
                   <li>Adults: 2</li>
                   <li>Children: 0</li>
                 </ul>
-                <button v-on:click="addToCart('item')" class="buy-btn">
+                <button
+                  v-on:click="addToCartHard('Standard room', 250, 2, 0, '', '')"
+                  class="buy-btn"
+                >
                   Book now!
                 </button>
               </div>
@@ -506,12 +497,6 @@
               data-aos-delay="200"
             >
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link to="/edit?type=3">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>Big Standard Room</h3>
                 <h4><sup>€</sup>300<span>One night</span></h4>
                 <ul>
@@ -519,7 +504,19 @@
                   <li>Children: 1</li>
                   <li>Additional bed</li>
                 </ul>
-                <button v-on:click="addToCart('item')" class="buy-btn">
+                <button
+                  v-on:click="
+                    addToCartHard(
+                      'Big standard room',
+                      300,
+                      4,
+                      1,
+                      'Additional bed',
+                      ''
+                    )
+                  "
+                  class="buy-btn"
+                >
                   Book now!
                 </button>
               </div>
@@ -530,12 +527,6 @@
               data-aos-delay="300"
             >
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link to="/edit?type=4">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>Family suite</h3>
                 <h4><sup>€</sup>400<span>One night</span></h4>
                 <ul>
@@ -543,7 +534,19 @@
                   <li>Children: 2</li>
                   <li>Two bedrooms with seperate beds for the children</li>
                 </ul>
-                <button v-on:click="addToCart('item')" class="buy-btn">
+                <button
+                  v-on:click="
+                    addToCartHard(
+                      'Family suite',
+                      400,
+                      2,
+                      2,
+                      'Two bedrooms with seperate beds for the children',
+                      ''
+                    )
+                  "
+                  class="buy-btn"
+                >
                   Book now!
                 </button>
               </div>
@@ -554,12 +557,6 @@
               data-aos-delay="300"
             >
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link to="/edit?type=5">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>Queen</h3>
                 <h4><sup>€</sup>450<span>One night</span></h4>
                 <ul>
@@ -567,7 +564,12 @@
                   <li>Children: 0</li>
                   <li>Queensize bed</li>
                 </ul>
-                <button v-on:click="addToCart('item')" class="buy-btn">
+                <button
+                  v-on:click="
+                    addToCartHard('Queen', 450, 2, 0, 'Queensize bed', '')
+                  "
+                  class="buy-btn"
+                >
                   Book now!
                 </button>
               </div>
@@ -578,12 +580,6 @@
               data-aos-delay="300"
             >
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link to="/edit?type=6">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>King</h3>
                 <h4><sup>€</sup>500<span>One night</span></h4>
                 <ul>
@@ -591,7 +587,12 @@
                   <li>Children: 0</li>
                   <li>Kingsize bed</li>
                 </ul>
-                <button v-on:click="addToCart('item')" class="buy-btn">
+                <button
+                  v-on:click="
+                    addToCartHard('King', 500, 2, 0, 'Kingsize bed', '')
+                  "
+                  class="buy-btn"
+                >
                   Book now!
                 </button>
               </div>
@@ -602,12 +603,6 @@
               data-aos-delay="300"
             >
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link to="/edit?type=7">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>Double-double</h3>
                 <h4><sup>€</sup>650<span>One night</span></h4>
                 <ul>
@@ -615,7 +610,19 @@
                   <li>Children: 0</li>
                   <li>Multiple queensize beds</li>
                 </ul>
-                <button v-on:click="addToCart('item')" class="buy-btn">
+                <button
+                  v-on:click="
+                    addToCartHard(
+                      'Double-double',
+                      650,
+                      4,
+                      0,
+                      'Multiple queensize beds',
+                      ''
+                    )
+                  "
+                  class="buy-btn"
+                >
                   Book now!
                 </button>
               </div>
@@ -627,12 +634,6 @@
               data-aos-delay="300"
             >
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link to="/edit?type=8">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>Master suite</h3>
                 <h4><sup>€</sup>800<span>One night</span></h4>
                 <ul>
@@ -640,7 +641,19 @@
                   <li>Children: 0</li>
                   <li>Multiple bedrooms with kingsize beds</li>
                 </ul>
-                <button v-on:click="addToCart('item')" class="buy-btn">
+                <button
+                  v-on:click="
+                    addToCartHard(
+                      'Master suite',
+                      800,
+                      6,
+                      0,
+                      'Multiple bedrooms with kingsize beds',
+                      ''
+                    )
+                  "
+                  class="buy-btn"
+                >
                   Book now!
                 </button>
               </div>
@@ -653,12 +666,6 @@
               data-aos-delay="300"
             >
               <div class="box">
-                <div v-if="isPartner">
-                  <router-link to="/edit?:type=id">
-                    <p>Edit</p>
-                  </router-link>
-                </div>
-
                 <h3>{{ product.name }}</h3>
                 <h4><sup>€</sup>{{ product.price }} <span>One night</span></h4>
                 <ul>
@@ -666,7 +673,10 @@
                   <li>Children: {{ product.children }}</li>
                   <li>{{ product.extraInformation }}</li>
                 </ul>
-                <a href="Afrekenen.html" class="buy-btn">Book now!</a>
+                <button v-on:click="addToCart(product)" class="buy-btn">
+                  Book now!
+                </button>
+                <!--<a href="Afrekenen.html" class="buy-btn">Book now!</a>-->
               </div>
             </div>
           </div>
@@ -703,8 +713,8 @@
                   data-bs-parent=".faq-list"
                 >
                   <p>
-                    Yes the whole hotel and activities are save for children.
-                    From feedback that we receive we can conclude that children
+                    Yes. the whole hotel and activities are safe for children.
+                    From feedback we have received we can conclude that children
                     love the activities.
                   </p>
                 </div>
@@ -715,7 +725,7 @@
                   data-bs-toggle="collapse"
                   data-bs-target="#faq-list-2"
                   class="collapsed"
-                  >Does the whole area not have oxygen?<i
+                  >Does the whole area have oxygen?<i
                     class="bx bx-chevron-down icon-show"
                   ></i
                   ><i class="bx bx-chevron-up icon-close"></i
@@ -726,9 +736,9 @@
                   data-bs-parent=".faq-list"
                 >
                   <p>
-                    The whole area has oxygen. Only some areas dont have it but
-                    they are areas for activities only. So don't be affraid you
-                    can breath.
+                    Most of the areas do. The ones without are areas for
+                    activities only. The freely accessible areas have breathable
+                    air at all times.
                   </p>
                 </div>
               </li>
@@ -816,9 +826,10 @@
   </div>
   --></div>
 </template>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js"></script>
 
 <script>
-import Item from "@/Item.vue";
+//import Item from "@/Item.vue";
 export default {
   name: "HomeView",
   computed: {
@@ -834,9 +845,26 @@ export default {
       return this.$store.getters.getProducts;
     },
   },
-  components: {
-    Item,
+  methods: {
+    addToCart(item) {
+      this.$store.commit("addToCart", item);
+    },
+    addToCartHard(namea, pricea, adultsa, childrena, desca, infoa) {
+      let product = {
+        name: namea,
+        description: desca,
+        adults: adultsa,
+        children: childrena,
+        price: pricea,
+        extraInformation: infoa,
+        thumbnail_url: "Test",
+      };
+      this.$store.commit("addToCart", product);
+    },
   },
+  /*components: {
+    Item,
+  },*/
   mounted() {
     this.$store.dispatch("getProducts");
   },

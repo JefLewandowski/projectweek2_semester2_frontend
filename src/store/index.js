@@ -30,6 +30,11 @@ export default new Vuex.Store({
       inCart: state => state.inCart,
   },
   mutations: {
+    setUrls (state) {
+      state.endpoints.login = process.env.VUE_APP_AUTH_URL;
+       state.endpoints.products = process.env.VUE_APP_PRODUCTS_URL;
+       url = state.endpoints.products+"/findAll";
+    },
     logout(state) {
       state.user.isAuthenticated = false;
       state.user.name = "";
